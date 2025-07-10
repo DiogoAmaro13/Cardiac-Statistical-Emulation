@@ -1,0 +1,20 @@
+{
+    "Last Execution": "2025-06-18T15:29:55.574402",
+    "Train Mode": false,
+    "Features": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+    ],
+    "Targets": [
+        "alpha_0",
+        "beta_0",
+        "alpha_1",
+        "beta_1",
+        "alpha_2",
+        "beta_2"
+    ],
+    "Random Seed": 42,
+    "Model Paths": "/home/amaro/gpr_modelling/data/objects/models"
+}
