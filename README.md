@@ -1,5 +1,6 @@
 
 # Cardiac Statistical Emulation
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15858919.svg)](https://doi.org/10.5281/zenodo.15858919)
 
 This repository implements a statistical emulator for cardiac finite element simulations using Gaussian Process Regression (GPR). The goal is to enable fast, surrogate modeling of the passive left ventricle mechanics for parameter inference and uncertainty quantification. The code concerns my master thesis: "Statistical Emulation of Complex Cardiac Models using Gaussian Processes", which can be accessed [here](https://run.unl.pt/handle/10362/418?subject_page=1).
 
@@ -39,6 +40,8 @@ conda activate jax-fem-env
 
 Due to file size, the trained .pkl models are not included in this repository. Before executing the code, download them from [here](https://zenodo.org/records/15858919) and place them into the [models directory](data/objects/models/).
 
-If you want to train your own models, the previous step is not necessary and you should go into the [configuration file](gpr_modelling/forward/config.py) and change to ```python
+If you want to train your own models, the previous step is not necessary and you should go into the [configuration file](gpr_modelling/forward/config.py) and change to 
+```python
 TRAIN_MODE=True
-```.
+```
+.
