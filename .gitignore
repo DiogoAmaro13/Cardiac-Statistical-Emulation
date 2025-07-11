@@ -1,1 +1,27 @@
+# Byte-compiled files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv*/
+.env/
+.venv/
+
+# Package build artifacts
+*.egg-info/
+build/
+dist/
+
+# VSCode settings
+.vscode/
+
+# Pytest cache
+.pytest_cache/
+
+# Large model files
 data/objects/models/*.pkl
+
+# System files
+.DS_Store
+Thumbs.db
+
