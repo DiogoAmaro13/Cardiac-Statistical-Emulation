@@ -42,6 +42,5 @@ Due to file size, the trained .pkl models are not included in this repository. B
 
 If you want to train your own models, the previous step is not necessary and you should go into the [configuration file](gpr_modelling/forward/config.py) and change to 
 ```python
-TRAIN_MODE=True
+TRAIN_MODE = True
 ```
-.
