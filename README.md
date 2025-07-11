@@ -3,10 +3,7 @@
 
 This repository implements a statistical emulator for cardiac finite element simulations using Gaussian Process Regression (GPR). The goal is to enable fast, surrogate modeling of the passive left ventricle mechanics for parameter inference and uncertainty quantification. The code supports my master's thesis: _"Statistical Emulation of Complex Cardiac Models using Gaussian Processes"_, which can be accessed [here](https://run.unl.pt/handle/10362/418?subject_page=1).
 
-The code consists of three main sections: 
-(1) the [forward](gpr_modelling/forward/) directory handles the emulation of the results from the simulator. Once we showed we could accurately replicate those results within a much shorter time frame, 
-(2) we evaluated the level of uncertainty of those predictions through (global and local) sensitivity analysis, located in [sensitivity](gpr_modelling/sensitivity/); 
-(3) finally, [parameter estimation](notebooks/03_parameter_inference.ipynb) was performed to evaluate whether the model could infer unknown material parameters based on unseen data. In a real context, this could mean feeding the model with (output) data from MRI or CT scans, for example, and assess the capability of the model to infer (input) parameters that caused the behaviors observed in the medical exams. 
+The code consists of three main sections: (1) the [forward](gpr_modelling/forward/) directory handles the emulation of the results from the simulator. Once we showed we could accurately replicate those results within a much shorter time frame, (2) we evaluated the level of uncertainty of those predictions through (global and local) sensitivity analysis, located in [sensitivity](gpr_modelling/sensitivity/); (3) finally, [parameter estimation](notebooks/03_parameter_inference.ipynb) was performed to evaluate whether the model could infer unknown material parameters based on unseen data. In a real context, this could mean feeding the model with (output) data from MRI or CT scans, for example, and assess the capability of the model to infer (input) parameters that caused the behaviors observed in the medical exams. 
 
 The results from this three mains sections are segmented in [results](results/).
 
@@ -53,7 +50,7 @@ gpr_project_root/
 
 This project involves **two environments**:
 
-### Main Environment (pip + venv)
+### 1. Main Environment (pip + venv)
 
 This is used for forward modeling, sensitivity analysis, and inference.
 
@@ -68,7 +65,7 @@ Main dependencies include:
 - `scikit-learn`, `gpflow`, `tensorflow`
 - `openpyxl`, `seaborn`, `pytest`, `SALib`, `adjustText`
 
-### Secondary Environment (FEniCS Simulations)
+### 2. Secondary Environment (FEniCS Simulations)
 
 Used **only** to regenerate simulation data using FEniCS + JAX (optional).
 
