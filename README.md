@@ -3,7 +3,10 @@
 
 This repository implements a statistical emulator for cardiac finite element simulations using Gaussian Process Regression (GPR). The goal is to enable fast, surrogate modeling of the passive left ventricle mechanics for parameter inference and uncertainty quantification. The code supports my master's thesis: _"Statistical Emulation of Complex Cardiac Models using Gaussian Processes"_, which can be accessed [here](https://run.unl.pt/handle/10362/418?subject_page=1).
 
-The code consists of three main sections: (1) the [forward](gpr_modelling/forward/) directory handles the emulation of the results from the simulator. Once we showed we could accurately replicate those results within a much shorter time frame, (2) we evaluated the level of uncertainty of those predictions through (global and local) sensitivity analysis, located in [sensitivity](gpr_modelling/sensitivity/); (3) finally, [parameter estimation](notebooks/03_parameter_inference.ipynb) was performed to evaluate whether the model could infer unknown material parameters based on unseen data. In a real context, this could mean feeding the model with (output) data from MRI or CT scans, for example, and assess the capability of the model to infer (input) parameters that caused the behaviors observed in the medical exams. 
+The code consists of three main sections: 
+(1) the [forward](gpr_modelling/forward/) directory handles the emulation of the results from the simulator. Once we showed we could accurately replicate those results within a much shorter time frame, 
+(2) we evaluated the level of uncertainty of those predictions through (global and local) sensitivity analysis, located in [sensitivity](gpr_modelling/sensitivity/); 
+(3) finally, [parameter estimation](notebooks/03_parameter_inference.ipynb) was performed to evaluate whether the model could infer unknown material parameters based on unseen data. In a real context, this could mean feeding the model with (output) data from MRI or CT scans, for example, and assess the capability of the model to infer (input) parameters that caused the behaviors observed in the medical exams. 
 
 The results from this three mains sections are segmented in [results](results/).
 
@@ -69,25 +72,24 @@ Main dependencies include:
 
 Used **only** to regenerate simulation data using FEniCS + JAX (optional).
 
-Instructions provided in [`FEniCS_simulations/jax-fem-env.yml`](FEniCS_simulations/jax-fem-env.yml):
+Instructions provided [here](FEniCS_simulations/jax-fem-env.yml):
 
 ```bash
 conda create -n jax-fem-env python=3.9.18 numpy=1.24 scipy=1.11.3 matplotlib=3.8.0 pip=23.2.1
 conda install -c conda-forge fenics
 conda install -c conda-forge gmsh meshio
-conda activate jax-fem-env
 ```
 
 ---
 ## Main Execution
 
-Due to GitHub file size limits, trained `.pkl` models are hosted externally. Download them from **[Zenodo (DOI: 10.5281/zenodo.15858919)](https://zenodo.org/records/15858919)** and place them in:
+Due to GitHub file size limits, trained `.pkl` models are hosted externally. Download them from [Zenodo](https://zenodo.org/records/15858919) and place them in:
 
 ```
 data/objects/models/
 ```
 
-If you'd rather train models from scratch, set the training flag in [`gpr_modelling/forward/config.py`](gpr_modelling/forward/config.py):
+If you'd rather train models from scratch, set the training flag in the [config file](gpr_modelling/forward/config.py) to
 
 ```python
 TRAIN_MODE = True
