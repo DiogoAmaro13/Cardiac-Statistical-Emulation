@@ -37,7 +37,8 @@ conda activate jax-fem-env
 
 # Main Execution
 
-The code is divided into multiple files, each with their own functionality. The most useful for results replication may be:
+Due to file size, the trained .pkl models are not included in this repository. Before executing the code, download them from [here](https://zenodo.org/records/15858919) and place them into the [models directory](data/objects/models/).
 
-1. [config.py](gpr_modelling/forward/config.py): this is where all the paths are defined, as well as the seed. Those are the root variables for every script.
-2. 
+If you want to train your own models, the previous step is not necessary and you should go into the [configuration file](gpr_modelling/forward/config.py) and change to ```python
+TRAIN_MODE=True
+```.
