@@ -14,7 +14,7 @@ gpr_project_root/<br/>
 ├── notebooks/ # Jupyter notebook for inference section<br/>
 ├── results/ # Inference results, plots, sensitivity analysis, etc.<br/>
 ├── scripts/ # Script-based interface<br/>
-├── tests/ # Unit tests
+├── tests/ # Unit tests on utility functions
 
 ## Environment Setup
 
@@ -43,4 +43,9 @@ Due to file size, the trained .pkl models are not included in this repository. B
 If you want to train your own models, the previous step is not necessary and you should go into the [configuration file](gpr_modelling/forward/config.py) and change to 
 ```python
 TRAIN_MODE = True
+```
+
+After downloading the models and setting up the venv, the code can be executed. To run unit tests on every function (from root):
+ ```bash
+python -m pytest tests/
 ```
