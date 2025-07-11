@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/amaro/gpr_modelling/venv-gpr_modelling
+set -gx VIRTUAL_ENV /home/amaro/gpr_project_root/venv-gpr_modelling
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

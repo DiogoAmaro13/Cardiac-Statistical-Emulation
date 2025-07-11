@@ -1,4 +1,4 @@
-#!/home/amaro/gpr_modelling/venv-gpr_modelling/bin/python3
+#!/home/amaro/gpr_project_root/venv-gpr_modelling/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
