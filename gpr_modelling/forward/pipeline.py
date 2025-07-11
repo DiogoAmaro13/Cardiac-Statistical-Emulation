@@ -2,7 +2,7 @@ from pathlib import Path
 from gpr_modelling.forward.config import PROCESSED_DATA_DIR, MODEL_DIR, FORWARD_RESULTS_DIR, TRAIN_MODE
 from gpr_modelling.forward.data import load_and_split_data, split_data, normalize_data
 from gpr_modelling.forward.modelling import load_or_train_gp_models, predict_with_gp
-from gpr_modelling.forward.plotting import plot_predictions, revised_plot_gp_predicted_relationships
+from gpr_modelling.forward.plotting import plot_predictions
 from gpr_modelling.forward.utils import save_metadata
 from gpr_modelling.logger import get_logger
 

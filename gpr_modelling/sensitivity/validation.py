@@ -7,7 +7,7 @@ import seaborn as sns
 from SALib.analyze import sobol
 from SALib.sample import saltelli
 
-from gpr_modelling.forward.sensitivity.global_sa import evaluate_model
+from gpr_modelling.sensitivity.global_sa import evaluate_model
 from gpr_modelling.forward.utils import latexify_param, NumpyEncoder
 
 

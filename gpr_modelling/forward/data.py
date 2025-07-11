@@ -74,7 +74,7 @@ def split_data(q_data, y_data, test_size=0.1, random_state=RANDOM_SEED):
     return q1, q2, y1, y2
 
 
-def normalize_data(q1, q2, y1, y2):
+def normalize_data(q1, q2, y1, y2, train_new=False, save_dir=None):
     """
     Normalize the data using StandardScaler by loading pre-defined scalers.
 
@@ -92,14 +92,22 @@ def normalize_data(q1, q2, y1, y2):
         q_scaler (StandardScaler): Scaler for feature data.
         y_scaler (StandardScaler): Scaler for target data.
     """
+    if train_new:
+        q_scaler = StandardScaler().fit(q1)
+        y_scaler = StandardScaler().fit(y1)
 
-    scaler_dir = SCALER_DIR
+        if save_dir:
+            os.makedirs(save_dir, exist_ok=True)
+            joblib.dump(q_scaler, os.path.join(save_dir, "q_scaler.pkl"))
+            joblib.dump(y_scaler, os.path.join(save_dir, "y_scaler.pkl"))
+    else:
+        scaler_dir = SCALER_DIR
 
-    q_scaler, y_scaler = load_scalers(scaler_dir)
+        q_scaler, y_scaler = load_scalers(scaler_dir)
 
-    X_train = q_scaler.fit_transform(q1)
-    X_test = q_scaler.transform(q2)
-    y_train = y_scaler.fit_transform(y1)
-    y_test = y_scaler.transform(y2)
+        X_train = q_scaler.fit_transform(q1)
+        X_test = q_scaler.transform(q2)
+        y_train = y_scaler.fit_transform(y1)
+        y_test = y_scaler.transform(y2)
 
-    return X_train, X_test, y_train, y_test, q_scaler, y_scaler
+        return X_train, X_test, y_train, y_test, q_scaler, y_scaler

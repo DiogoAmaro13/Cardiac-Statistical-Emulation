@@ -1,5 +1,5 @@
 {
-    "Last Execution": "2025-06-18T15:29:55.574402",
+    "Last Execution": "2025-07-11T22:21:10.987722",
     "Train Mode": false,
     "Features": [
         "q1",
@@ -16,5 +16,5 @@
         "beta_2"
     ],
     "Random Seed": 42,
-    "Model Paths": "/home/amaro/gpr_modelling/data/objects/models"
+    "Model Paths": "/home/amaro/gpr_project_root/data/objects/models"
 }

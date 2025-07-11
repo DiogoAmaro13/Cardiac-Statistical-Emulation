@@ -1,13 +1,13 @@
 from gpr_modelling.forward.config import MODEL_DIR, SCALER_DIR, SA_RESULTS_DIR
 from gpr_modelling.sensitivity.validation import kde_analysis, plot_sobol_convergence
-from gpr_modelling.forward.utils import load_gpr_model, load_scalers
+from gpr_modelling.forward.utils import load_gpr_models, load_scalers
 
 def main():
     """
     Main function to run sensitivity analysis validation using pre-trained GPR models.
     """
     # Load models and scalers
-    gpr_models = load_gpr_model(MODEL_DIR)
+    gpr_models = load_gpr_models(MODEL_DIR)
     q_scaler, y_scaler = load_scalers(SCALER_DIR)
 
     # Define the output names
