@@ -25,15 +25,21 @@ pip install -r requirements.txt
 
 # 4. Download pretrained models (see Main Execution below)
 
-# 5. Run main scripts
-    # 5.1 Run forward predictions
+# 5. Run unit tests (optional)
+python -m pytest tests/
+
+# 6. Run main scripts
+    # 6.1 Run forward predictions
     python -m scripts.run_forward_pipeline
 
-    # 5.2 Run global sensitivity analysis
+    # 6.2 Run global sensitivity analysis
     python -m scripts.run_global_sa
 
-    # 5.2 Run local sensitivity analysis
-    python -m scripts.local_sa
+    # 6.3 Run local sensitivity analysis
+    python -m scripts.run_local_sa
+
+    # 6.4 Run sensitivity analysis validation
+    python -m scripts.run_sa_validation
 ```
 
 ---
@@ -120,6 +126,9 @@ python -m scripts.run_local_sa
 
 # Run validation of SA metrics (convergence tests, KDE analysis)
 python -m scripts.run_sa_validation
+
+# Run parameter inference
+# 03_parameter_inference.ipynb
 ```
 
 ---
