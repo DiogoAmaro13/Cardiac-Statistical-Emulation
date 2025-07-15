@@ -29,6 +29,9 @@ SA_RESULTS_DIR = RESULTS_DIR / "sensitivity_analysis"
 # Inference directory
 INVERSE_RESULTS_DIR = RESULTS_DIR / "inverse"
 
+# Experimental design directory
+EXPERIMENTAL_DESIGN_DIR = RESULTS_DIR / "experimental_design"
+
 # Default train models status
 TRAIN_MODE = False
 
