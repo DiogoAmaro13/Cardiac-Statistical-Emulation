@@ -25,8 +25,15 @@ pip install -r requirements.txt
 
 # 4. Download pretrained models (see Main Execution below)
 
-# 5. Run forward pipeline
-python -m scripts.run_forward_pipeline
+# 5. Run main scripts
+    # 5.1 Run forward predictions
+    python -m scripts.run_forward_pipeline
+
+    # 5.2 Run global sensitivity analysis
+    python -m scripts.run_global_sa
+
+    # 5.2 Run local sensitivity analysis
+    python -m scripts.local_sa
 ```
 
 ---
