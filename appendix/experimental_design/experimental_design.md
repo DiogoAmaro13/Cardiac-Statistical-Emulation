@@ -8,7 +8,7 @@ To ensure thorough coverage of the input parameter space, it is important to des
 
 Rectangular grid sampling involves discretizing each dimension of the input space into evenly spaced intervals and evaluating all possible combinations of these values across dimensions (Young, 1991).  
 
-For a $\[d\]$-dimensional parameter space with $\(n\)$ discretization points per dimension, the total number of sample points is given by \(n^d\).  
+For a $d$-dimensional parameter space with $n$ discretization points per dimension, the total number of sample points is given by $n^d$.  
 Let each parameter $\(q_i \in [a_i, b_i]\)$, for \(i = 1, \dots, d\). Then, the values for \(q_i\) are computed as:
 
 $$
