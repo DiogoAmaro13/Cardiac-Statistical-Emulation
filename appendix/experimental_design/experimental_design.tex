@@ -59,7 +59,7 @@ Despite the theoretical plausibility, Sobol sampling is not particularly advanta
 \subsection{Latin Hypercube Sampling}
 The Latin hypercube sampling is a stratified sampling technique, first introduced by McKay et al.~\cite{McKay}, to generate diverse and well-distributed parameter combinations across the input space of reduced material parameters $\mathbf{q} = (q_1, q_2, q_3, q_4) \in \mathbb{R}^4$.
 
-Let the parameter space be defined as a $d$-dimensional hypercube, with each parameter \( q_i \in [a_i, b_i] \), for \( i = 1, \ldots, d \). Suppose we wish to generate \( N \) samples. In LHS, each interval \([a_i, b_i]\) is divided into \( N \) equally probable, non-overlapping intervals. Then, one value is randomly sampled from each interval without replacement. The sampled values along each dimension are then randomly paired across dimensions to form \( N \) $d$-dimensional input vectors. Formally, for each variable \( i \), define the partition:
+Let the parameter space be defined as a $d$-dimensional hypercube, with each parameter \( q_i \in [a_i, b_i] \), for \( i = 1, \ldots, d \). Suppose we wish to generate \( N \) samples. In Latin hypercube sampling, each interval \([a_i, b_i]\) is divided into \( N \) equally probable, non-overlapping intervals. Then, one value is randomly sampled from each interval without replacement. The sampled values along each dimension are then randomly paired across dimensions to form \( N \) $d$-dimensional input vectors. Formally, for each variable \( i \), define the partition:
 \begin{equation}
 P_{ij} = \left[ a_i + \frac{j-1}{N}(b_i - a_i),\ a_i + \frac{j}{N}(b_i - a_i) \right], \quad j = 1, \dots, N.
 \end{equation}
@@ -67,12 +67,12 @@ Then, for each \( i \), randomly permute the indices \( \{1, 2, \dots, N\} \) to
 \begin{equation}
 \mathbf{q}^{(j)} = \left( x_1^{(j)}, x_2^{(j)}, \dots, x_d^{(j)} \right), \quad j = 1, \dots, N.
 \end{equation}
-This process ensures that each marginal distribution is uniformly sampled, while achieving better coverage of the joint space compared to pure Monte Carlo sampling. However, for designs that depend strongly on the correlation of two variables, latin hypercube sampling has little advantage over traditional Monte Carlo sampling~\cite{press1992} as much as it is guaranteed not to perform much worse. Specifically, Owen has proven that the variance of a $n_t$-point Latin hypercube sample, $\sigma^2_{LHS}$, is related to the variance of a traditional $n_t$-point Monte Carlo sample, $\sigma^2_{MC}$, by
+This process ensures that each marginal distribution is uniformly sampled, while achieving better coverage of the joint space compared to pure Monte Carlo sampling. However, for designs that depend strongly on the correlation of two variables, Latin hypercube sampling has little advantage over traditional Monte Carlo sampling~\cite{press1992} as much as it is guaranteed not to perform much worse. Specifically, Owen has proven that the variance of a $n_t$-point Latin hypercube sample, $\sigma^2_{LHS}$, is related to the variance of a traditional $n_t$-point Monte Carlo sample, $\sigma^2_{MC}$, by
 \begin{equation}
 	\sigma^2_{LHS} \leq \frac{n_t}{n_t -1}\sigma^2_{MC}, \qquad \text{where}\: n_t > 1,
 	\label{eq:vlhs_vmc}  
 \end{equation}
-meaning that a Latin hypercube sample with $n_t$ points never leads to a variance greater than an MC sample with $n_t-1$ points~\cite{owen1997monte}.
+meaning that a Latin hypercube sample with $n_t$ points never leads to a variance greater than a Monte Carlo sample with $n_t-1$ points~\cite{owen1997monte}.
 
 \begin{figure}[H]
 \centering
