@@ -52,7 +52,7 @@ def plot_predictions(y_true, y_pred, y_cols, std_pred, mse=None, r2=None,
             zorder=3
         )
 
-        # Optionally add uncertainty
+        # add uncertainty
         if std_pred is not None:
             ax.errorbar(
                 true_vals,
@@ -110,7 +110,7 @@ def plot_predictions(y_true, y_pred, y_cols, std_pred, mse=None, r2=None,
             data_dict=data_dict
         )
     
-    # Violin Plot of Std Deviation
+    # violin plot
     if std_pred is not None:
         fig_violin, ax_v = plt.subplots(figsize=(10, 6))
         std_norm = (std_pred - std_pred.min(axis=0)) / (std_pred.max(axis=0) - std_pred.min(axis=0))
