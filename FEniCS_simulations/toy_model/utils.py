@@ -66,7 +66,7 @@ def latexify_param(name):
         'edv': 'EDV',
         'esv': 'ESV', 
         'ef': 'EF',
-        'sv': 'SV'  # Stroke Volume
+        'sv': 'SV'  # stroke Volume
 }
     if name.lower() in cardiac_params:
         return cardiac_params[name.lower()]
@@ -207,7 +207,7 @@ def load_or_train_gp_regressor(X_train, y_train, y_cols, save_dir, kernel=None, 
 
         if train:
             if kernel is None:
-                kernel = Matern(length_scale=1.0, nu=2.5)  # Default Matern kernel
+                kernel = Matern(length_scale=1.0, nu=2.5)  # default Matern kernel
 
             gpr = GaussianProcessRegressor(kernel=kernel, n_restarts_optimizer=3)
             gpr.fit(X_train, y_train[:, i])

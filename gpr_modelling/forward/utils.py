@@ -258,7 +258,3 @@ def save_metadata(train_mode=TRAIN_MODE,
     
     with open(fig_dir / "run_info.json", "w") as f:
         json.dump(run_metadata, f, indent=4)
-
-
-
-# ======================== Start of inverse utils ==================================
