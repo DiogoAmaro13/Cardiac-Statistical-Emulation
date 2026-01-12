@@ -41,7 +41,7 @@ def test_normalization_shapes():
     assert y_test.shape == y2.shape
 
 
-# =========== Test GPR Model Loading and Specs ===========
+# test GPR model loading
 def test_load_gpr_model():
     
     models = load_gpr_models(MODEL_DIR)
@@ -53,7 +53,7 @@ def test_load_gpr_model():
         assert hasattr(model, "kernel_")
 
 
-# =========== Test Scaler Loading ===========
+# test scaler loading
 def test_load_scalers():
     q_scaler, y_scaler = load_scalers(SCALER_DIR) 
 
@@ -69,7 +69,7 @@ def test_load_scalers():
 
 
 
-# ================= Predictions test ==========================
+# prediction test
 def test_model_prediction():
     data_path = Path(PROCESSED_DATA_DIR) / "datasets.xlsx"
     q_data, y_data, y_cols = load_and_split_data(data_path)

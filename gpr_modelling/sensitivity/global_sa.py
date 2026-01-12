@@ -38,25 +38,25 @@ def sensitivity_analysis_gp(gpr_models, q_scaler, sample_size):
     Returns:
         Dict containing Sobol indices and validation metrics
     """
-    # 1. Problem definition with bounds checking
+    # Problem definition with bounds checking
     problem = {
         'num_vars': 4,
         'names': ['q1', 'q2', 'q3', 'q4'],
         'bounds': [[0.1, 5]]*4 
     }
     
-    # 2. Generate samples with sample size validation
+    # Generate samples with sample size validation
     if sample_size > 2048:
         print("Warning: Large sample size may cause memory issues")
     param_values = saltelli.sample(problem, sample_size)
     
-    # 3. Input scaling with bounds verification
+    # Input scaling with bounds verification
     norm_pm = q_scaler.transform(param_values)
     
-    # 4. Model evaluation
+    # Model evaluation
     Y = evaluate_model(norm_pm)
     
-    # 5. Sobol analysis with validation
+    # Sobol analysis with validation
     sobol_indices = {'results': {}, 'validation': {}}
     
     for feat in gpr_models:
@@ -85,7 +85,7 @@ def plot_sobol_results(sa_results, output_dir):
     """Generate all diagnostic plots"""
     os.makedirs(output_dir, exist_ok=True)
     
-    # 1. First-order and total-order indices
+    # First-order and total-order indices
     for feat in sa_results['results']:
         df = pd.DataFrame({
             'First-Order': sa_results['results'][feat]['S1'],
@@ -100,19 +100,3 @@ def plot_sobol_results(sa_results, output_dir):
         plt.tight_layout()
         plt.savefig(f"{output_dir}/sobol_{feat}.pdf", dpi=300)
         plt.close()
-        
-        # 2. Interaction heatmaps if available
-        #if sa_results['results'][feat]['S2'] is not None:
-        #    plt.figure(figsize=(6, 5))
-        #    sns.heatmap(
-        #        np.array(sa_results['results'][feat]['S2']),
-        #        annot=True, fmt=".2f",
-        #        xticklabels=[f'$q_{i+1}$' for i in range(4)],
-        #        yticklabels=[f'$q_{i+1}$' for i in range(4)],
-        #        cmap="vlag", center=0,
-        #        square=True, cbar_kws={'label': 'Interaction Strength'}
-        #    )
-        #    plt.title(f"Second-Order Interactions\n{latexify_param(feat)}", pad=15)
-        #    plt.tight_layout()
-        #    plt.savefig(f"{output_dir}/interactions_{feat}.pdf", dpi=300)
-        #    plt.close()
