@@ -30,7 +30,7 @@ class GPToyModelPipeline:
     def run(self):
         self.logger.info("Starting GP Toy Model Pipeline")
 
-        # --- Load and normalize data ---
+        # Load and normalize data
         q_data, y_data, y_cols = load_and_split_data(self.data_path)
         q1, q2, y1, y2 = split_data(q_data, y_data)
         X_train, X_test, y_train, y_test, q_scaler, y_scaler = normalize_data(
@@ -38,12 +38,12 @@ class GPToyModelPipeline:
         )
         self.logger.info("Data loaded and normalized successfully")
 
-        # --- Train or load GP model ---
+        # Train or load GP model
         regressor = load_or_train_gp_regressor(
             X_train, y_train, y_cols, save_dir=self.model_dir, train=self.train_gp
         )
 
-        # --- Predict and time the inference ---
+        # Predict and time the inference
         self.logger.info("Starting predictions")
         start_time = time.time()
         results = predict_with_gp(
@@ -53,7 +53,7 @@ class GPToyModelPipeline:
         elapsed_time = time.time() - start_time
         self.logger.info(f"Predictions completed in {elapsed_time:.6f} seconds")
 
-        # --- Plot performance ---
+        # Plot performance
         plot_performance(
             y2,
             y_pred=results['pred'],
